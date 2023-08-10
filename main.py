@@ -23,6 +23,13 @@ department_data = pd.read_csv('department.csv') if os.path.exists(
 
 # Page 1: Employee Data Entry
 def employee_data_entry():
+    """
+    Employee Data Entry Page
+
+    Allows users to input Employee information such as Employee Number (Empno),
+    Employee Name (Ename), Job, and Department Number (Deptno). Validates input
+    and adds new employee data to the employee_data DataFrame and CSV file.
+    """
     st.header("Employee Data Entry")
     empno = st.text_input("Employee Number (Empno)")
     ename = st.text_input("Employee Name (Ename)")
@@ -41,6 +48,14 @@ def employee_data_entry():
 
 # Page 2: Department Data Entry
 def department_data_entry():
+    """
+    Department Data Entry Page
+
+    Enables users to input Department information including Department Number (Deptno),
+    Department Name (Dname), and Location (Loc). Validates input and adds new department
+    data to the department_data DataFrame and CSV file.
+    """
+
     st.header("Department Data Entry")
     deptno = st.text_input("Department Number (Deptno)")
     dname = st.text_input("Department Name (Dname)")
@@ -59,6 +74,12 @@ def department_data_entry():
 
 # Page 3: Display Joined Data
 def display_joined_data():
+    """
+    Display Joined Data Page
+
+    Visualizes the joined employee and department data table based on the common 'Deptno' field.
+    """
+
     st.header("Joined Employee and Department Data")
     joined_data = pd.merge(
             employee_data, department_data, on="Deptno", how="inner")
@@ -67,6 +88,13 @@ def display_joined_data():
 
 # Main Application
 def main():
+    """
+    Main Application
+
+    Runs the Streamlit Data Entry Application. Provides navigation between different pages
+    and handles user interactions for data entry and visualization.
+    """
+    
     st.title("Data Entry Application")
 
     # Add navigation menu for different pages
